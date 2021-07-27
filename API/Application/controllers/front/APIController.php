@@ -5,7 +5,7 @@ class APIController {
 
     private $apiManager;
 
-
+    // On veut qu'au moment ou l'on instancie la classe de L'APIController, j'instancie aussi un APIManager
     public function __construct()
     {
         $this->apiManager = new APIManager();
