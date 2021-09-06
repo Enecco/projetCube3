@@ -16,7 +16,8 @@ try{
         throw new  Exception("la page n'existe pas");
     } else{
         $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
-        if(empty($url[0]) || empty($url[1]) || empty($url[2])) throw new  Exception("la page n'existe pas");//si le nombre de "dossiers" ne depasse pas 2 alors la page n'existe pas
+        if(empty($url[0]) || empty($url[1]) || empty($url[2])) throw new  Exception("la page n'existe pas");
+        //si le nombre de "dossiers" ne depasse pas 2 alors la page n'existe pas
         switch($url[0]){
             case "front" :
                 switch($url[1]){
