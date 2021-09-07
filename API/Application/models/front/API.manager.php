@@ -29,7 +29,7 @@ class APIManager extends Model{
 
     public function getDBContenu1() {
 
-        $req = " SELECT * FROM contenu  WHERE id_contenu = 1";
+        $req = " SELECT * FROM contenu  WHERE ID_contenu = 1";
         $stmt = $this->getBdd()->prepare($req); // si connexion true, on prepare la requete
         $stmt->execute();
         $contenuId1 = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetchAll prend en parametre la constante FETCH::ASSOC pour retourner SEULEMENT les champs present dans notre table.

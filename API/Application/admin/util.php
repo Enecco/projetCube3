@@ -19,7 +19,7 @@ function clean_php_session() : void
 
 function is_logged() : bool
 {
-    if(isset)
+
     return true;
 }
 

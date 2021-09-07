@@ -15,9 +15,9 @@
                 $password = $_POST['form_password'];
 
                 $sql =  'SELECT *  FROM site_users WHERE user_name = :name';
-                $fields =['user_name' => $username];
+                $fields = ['user_name' => $username];
 
-                $req = Database::getBdd()->request($sql, $fields);
+                $req = Database::getBdd()->exec($sql, $fields);
 
                 if($req)
                 {
@@ -56,6 +56,7 @@
         <nav>
             <ul>
                 <li><a href="admin.php">Accueil</a></li>
+                <li><a href="../view/themeCube3/index.php">Le vrai accueil</a></li>
             </ul>
         </nav>
 
