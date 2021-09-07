@@ -136,24 +136,20 @@ $donnees2 = $reponse2->fetch();
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
+						<section id="inscription">
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
-										<label for="name">Nom</label>
-										<input type="text" name="name" id="name" />
+										<label for="name">Username</label>
+										<input type="text" name="username" id="username" />
 									</div>
 									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
+										<label for="password">Password</label>
+										<input type="text" name="password" id="password" />
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input type="submit" value="S'inscrire" /></li>
 								</ul>
 							</form>
 						</section>
