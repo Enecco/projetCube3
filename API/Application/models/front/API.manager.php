@@ -1,6 +1,7 @@
 <?php
 // liaison faite pr heritage de la connexion Bdd
-require_once 'models/Model.php';
+require 'models/Model.php';
+require 'admin/Database.php';
 
 class APIManager extends Model{
 
@@ -13,6 +14,17 @@ class APIManager extends Model{
         // fermeture du cursor pour fermer la requete et la co a la bdd
         $stmt->closeCursor();
         return $contenu;
+    }
+
+    public function getAdmin() {
+
+        $req = " SELECT * FROM site_users ";
+        $stmt = $this->getBdd()->prepare($req); // si connexion true, on prepare la requete
+        $stmt->execute();
+        $admin = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetchAll prend en parametre la constante FETCH::ASSOC pour retourner SEULEMENT les champs present dans notre table.
+        // fermeture du cursor pour fermer la requete et la co a la bdd
+        $stmt->closeCursor();
+        return $admin;
     }
 
     public function getDBContenu1() {

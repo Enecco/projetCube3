@@ -47,6 +47,14 @@ class APIController {
         echo '</pre>';
     }
 
+    public function getAdmin(){
+        $admin = $this->apiManager->getAdmin();
+        // affichera les données (ss forme de tblx) de la table 
+        echo "<pre>";
+        print_r($admin); 
+        echo '</pre>';
+    }
+
     
     public function getUtilisateur(){
         $utilisateur = $this->apiManager->getDBUtilisateur();

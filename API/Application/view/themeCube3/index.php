@@ -1,3 +1,9 @@
+<?php
+
+	require '../../admin/util.php';
+	init_php_session();
+
+?>
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
