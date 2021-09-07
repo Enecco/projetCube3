@@ -2,6 +2,7 @@
 // liaison faite pr heritage de la connexion Bdd
 require 'models/Model.php';
 require 'admin/Database.php';
+// require 'view/index.php';
 
 class APIManager extends Model{
 
@@ -81,5 +82,31 @@ class APIManager extends Model{
         $stmt->closeCursor();
 
         return $rechercher;
+    }
+
+    public function createBDUser(){
+        // ! Axe d'amélioration : condition
+
+        //  requete get avec id user voir si existe
+        // if()l'id existe
+        // "existe déjà"
+
+         // if id existe pas
+        // if(isset($_POST['username']) || isset($_POST['password'])){
+        //     echo "Remplir les champs pour créer un user";
+        // }
+        // else{
+        $nomChoisi = $_POST['username'];
+        $passChoisi = $_POST['password'];
+        // }
+
+
+        $req = "INSERT INTO user VALUES ($nomChoisi, $passChoisi)";
+        $stmt = $this->getBdd()->prepare($req); 
+        // $stmt->bindParam(':Nomcomplet', $Nomcomplet, PDO::PARAM_STR);
+        $stmt->execute();
+        $stmt->closeCursor();
+        return "USER CREEE :" . $nomChoisi ;
+
     }
 }

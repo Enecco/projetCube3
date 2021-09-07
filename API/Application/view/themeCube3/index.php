@@ -1,4 +1,6 @@
 <?php
+
+
 try
 {
 	// On se connecte à MySQL
@@ -76,9 +78,11 @@ $donnees2 = $reponse2->fetch();
 								<header class="major">
 									<span class="date">8 septembre, 2021</span>
 									<h2><a href="#">Le nouveau Netflix</a></h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<p><?php
+										echo '<pre>';
+										print_r($_POST);
+										echo '</pre>';
+									?></p>
 								</header>
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<ul class="actions special">
@@ -137,7 +141,7 @@ $donnees2 = $reponse2->fetch();
 				<!-- Footer -->
 					<footer id="footer">
 						<section id="inscription">
-							<form method="post" action="#">
+							<form method="post" action="userCreated.php">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Username</label>
