@@ -50,13 +50,13 @@ $donnees2 = $reponse2->fetch();
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Accueil</a>
+						<a href="index.php" class="logo">Accueil</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="index.html">Accueil</a></li>
+							<li class="active"><a href="index.php">Accueil</a></li>
 							<li><a href="generic.html">Catalogue</a></li>
 							<li><a href="elements.html">Mon profil</a></li>
 						</ul>
