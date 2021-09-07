@@ -74,7 +74,7 @@ $donnees2 = $reponse2->fetch();
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
-									<span class="date">6 septembre, 2021</span>
+									<span class="date">8 septembre, 2021</span>
 									<h2><a href="#">Le nouveau Netflix</a></h2>
 									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
 									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
