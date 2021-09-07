@@ -1,8 +1,24 @@
 <?php
+try
+{
+	// On se connecte à MySQL
+	$bdd = new PDO('mysql:host=localhost;dbname=enekatestream;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+	// En cas d'erreur, on affiche un message et on arrête tout
+        die('Erreur : '.$e->getMessage());
+}
 
-	require '../../admin/util.php';
-	init_php_session();
+// Si tout va bien, on peut continuer
 
+// On récupère le contenu id(1) de la table contenu
+$reponse1 = $bdd->query('SELECT * FROM contenu  WHERE ID_contenu = 1');
+$reponse2 = $bdd->query('SELECT * FROM contenu  WHERE ID_contenu = 2');
+
+// On affiche chaque entrée une à une
+$donnees1 = $reponse1->fetch();
+$donnees2 = $reponse2->fetch();
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -74,29 +90,27 @@
 							<section class="posts">
 								<article>
 									<header>
-										<span class="date">April 24, 2017</span>
-										<h2><a href="#">Every breath you take<br />
-														Cover</a></h2>
+										<span class="date"><?php echo $donnees1['date_video'] ?></span>
+										<h2><a href="#"><?php echo $donnees1['titre']?></a></h2>
 									</header>
 									<!-- <a href="#" class="image fit"><img src="C:\Users\Pikate\Videos\Kaamelott ( série )\Livre I\Épisodes\001 Heat.mkv" alt="" /></a> -->
 									<!-- <video width="320" height="240" src="https://www.youtube.com/watch?v=yVQY6z7lyQ8" type=video/mp4>
 										<source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
 									  </video> -->
 									<video controls src="images/every-breath-you-take-the-police-acoustic-cover-tutorial.mp4" ></video>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<p><?php echo $donnees1['explication']?></p>
 									<ul class="actions special">
 										<li><a href="#" class="button">Full Story</a></li>
 									</ul>
 								</article>
 								<article>
 									<header>
-										<span class="date">April 22, 2017</span>
-										<h2><a href="#">Otherside<br />
-														Cover</a></h2>
+										<span class="date"><?php echo $donnees2['date_video']?></span>
+										<h2><a href="#"><?php echo $donnees2['titre']?></a></h2>
 									</header>
 									<!-- <a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a> -->
-									<video controls src="images/otherside-acoustic-red-hot-chili-peppers-fernan-unplugged.mp4"></video>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<video controls src="images/otherside-cover.mp4"></video>
+									<p><?php echo $donnees2['explication']?></p>
 									<ul class="actions special">
 										<li><a href="#" class="button">Full Story</a></li>
 									</ul>
