@@ -60,7 +60,7 @@ $donnees2 = $reponse2->fetch();
 						<ul class="links">
 							<li class="active"><a href="index.php">Accueil</a></li>
 							<li><a href="generic.html">Catalogue</a></li>
-							<li><a href="elements.html">Mon profil</a></li>
+							<li><a href="elements.php">Mon profil</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter" target="blank"><span class="label">Twitter</span></a></li>
@@ -149,7 +149,7 @@ $donnees2 = $reponse2->fetch();
 									</div>
 									<div class="field">
 										<label for="password">Password</label>
-										<input type="text" name="password" id="password" />
+										<input type="password" name="password" id="password" />
 									</div>
 								</div>
 								<ul class="actions">

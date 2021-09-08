@@ -1,12 +1,26 @@
 <?php
 
-print_r($_POST);
-echo "<br></br>";
+include "../../models/Model1.php";
+// print_r($_POST);
+// echo "<br></br>";
 
-require '../../models/front/API.manager.php';
+$nomChoisi = $_POST['username'];
+$passChoisi = $_POST['password'];
 
-$apimanage = new APIManager();
-$apimanage->createBDUser();
+$sql = "INSERT INTO `user` (username, password) VALUES ('$nomChoisi', '$passChoisi')";
+
+$result = $pdo->query($sql);
+
+if($result == TRUE){
+    echo "New record created successfully";
+}
+else{
+    echo "Error:" . $sql . "<br>" . $pdo->error;
+}
+// require '../../models/front/API.manager.php';
+// require "C:\wamp64\www\projetCube3\API\Application\models\\front\API.manager.php";
+// $apimanage = new APIManager();
+// $apimanage->createBDUser();
 // APIManager::createBDUser();
 ?>
 <!DOCTYPE html>
@@ -20,7 +34,7 @@ $apimanage->createBDUser();
 <body>
     <button id="laccueil">Accueil</button>
 
-    <script src="lejs.js">
+    <script src="usercreated.js">
     </script>
 </body>
 </html>
