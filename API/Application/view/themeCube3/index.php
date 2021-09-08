@@ -1,4 +1,6 @@
 <?php
+
+
 try
 {
 	// On se connecte à MySQL
@@ -58,7 +60,7 @@ $donnees2 = $reponse2->fetch();
 						<ul class="links">
 							<li class="active"><a href="index.php">Accueil</a></li>
 							<li><a href="generic.html">Catalogue</a></li>
-							<li><a href="elements.html">Mon profil</a></li>
+							<li><a href="elements.php">Mon profil</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter" target="blank"><span class="label">Twitter</span></a></li>
@@ -76,9 +78,7 @@ $donnees2 = $reponse2->fetch();
 								<header class="major">
 									<span class="date">8 septembre, 2021</span>
 									<h2><a href="#">Le nouveau Netflix</a></h2>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+
 								</header>
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<ul class="actions special">
@@ -137,7 +137,7 @@ $donnees2 = $reponse2->fetch();
 				<!-- Footer -->
 					<footer id="footer">
 						<section id="inscription">
-							<form method="post" action="#">
+							<form method="post" action="userCreated.php">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Username</label>
@@ -145,7 +145,7 @@ $donnees2 = $reponse2->fetch();
 									</div>
 									<div class="field">
 										<label for="password">Password</label>
-										<input type="text" name="password" id="password" />
+										<input type="password" name="password" id="password" />
 									</div>
 								</div>
 								<ul class="actions">
