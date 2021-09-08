@@ -78,11 +78,7 @@ $donnees2 = $reponse2->fetch();
 								<header class="major">
 									<span class="date">8 septembre, 2021</span>
 									<h2><a href="#">Le nouveau Netflix</a></h2>
-									<p><?php
-										echo '<pre>';
-										print_r($_POST);
-										echo '</pre>';
-									?></p>
+
 								</header>
 								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
 								<ul class="actions special">

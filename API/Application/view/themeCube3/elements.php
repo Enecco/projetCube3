@@ -1,3 +1,30 @@
+<?php
+
+function readUser(){
+
+include 'C:\wamp64\www\projetCube3\API\Application\models\Model1.php';
+
+$req = "SELECT * from user ";
+$result = $pdo->query($req);
+if ($result){ ?>
+	<td><?php echo "ID - Username - Password <br>"; ?></td><?php
+	while ($row = $result->fetch_assoc()) { ?>
+		<td><?php echo $row['ID_USER'], ' - '; ?></td>
+		<td><?php echo $row['username'], ' - '; ?></td>
+		<td><?php echo $row['password'], ' // '; ?></td>
+		<td><a class="btn btn-info" href="update.php?id=<?php echo $row['ID_USER']; ?>"><strong>Edit</strong>
+                                    </a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['ID_USER']; ?>">
+                                     <strong>Delete</strong></a></td>
+		<td><?php echo "<br>"; ?></td>
+	</tr>
+<?php }
+}
+
+}
+
+
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -46,7 +73,9 @@
 								<!-- User stuff -->
 									<h2>Users :</h2>
 
-									<p><?php echo "lol"; ?></p>
+									<p><?php readUser() ?></p>
+									
+									<script src="updateDelete.js"></script>
 
 									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
 									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
