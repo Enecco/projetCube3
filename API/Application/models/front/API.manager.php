@@ -60,16 +60,37 @@ class APIManager extends Model{
         return $contenu;
     }
 
-    public function getDBUtilisateur() {
+    public function getDBUtilisateur1() {
 
-        $req = "SELECT * from utilisateur ";
-        $stmt = $this->getBdd()->prepare($req);
+        $req = " SELECT * FROM user  WHERE ID_USER = 1";
+        $stmt = $this->getBdd()->prepare($req); // si connexion true, on prepare la requete
         $stmt->execute();
-        
-        $utilisateur = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $userId1 = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetchAll prend en parametre la constante FETCH::ASSOC pour retourner SEULEMENT les champs present dans notre table.
+        // fermeture du cursor pour fermer la requete et la co a la bdd
         $stmt->closeCursor();
+        return $userId1;
+    }
 
-        return $utilisateur;
+    public function getDBUtilisateur2() {
+
+        $req = " SELECT * FROM user  WHERE ID_USER = 2";
+        $stmt = $this->getBdd()->prepare($req); // si connexion true, on prepare la requete
+        $stmt->execute();
+        $userId3 = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetchAll prend en parametre la constante FETCH::ASSOC pour retourner SEULEMENT les champs present dans notre table.
+        // fermeture du cursor pour fermer la requete et la co a la bdd
+        $stmt->closeCursor();
+        return $userId3;
+    }
+
+    public function getDBUtilisateur3() {
+
+        $req = " SELECT * FROM user WHERE ID_USER = 3 ";
+        $stmt = $this->getBdd()->prepare($req); // si connexion true, on prepare la requete
+        $stmt->execute();
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC); // fetchAll prend en parametre la constante FETCH::ASSOC pour retourner SEULEMENT les champs present dans notre table.
+        // fermeture du cursor pour fermer la requete et la co a la bdd
+        $stmt->closeCursor();
+        return $user;
     }
     public function getDBRechercher() {
 

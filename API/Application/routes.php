@@ -41,16 +41,33 @@ try{
                                     print '<td><h2>Présentation des données | id_contenu(3)</h2></tr>';
                                     print '<td>'.$apiController->getContenu3().'';
                                 break;
+                                }
 
                     case "rechercher":
                         print '<td>' .$apiController->getRechercher().'';
                     case "utilisateur":
-                        print '<td>' .$apiController->getUtilisateur().'';
-                    break;
+                            switch($url[2]){
+                                case "1" :
+                                    print '<tr><h1>ENEKATESTREAM</h1>';
+                                    print '<td><h2>Présentation des données | id_USER(1)</h2></tr>';
+                                    print '<td>'.$apiController->getUtilisateur1().'';
+                                break;
 
-                    default: throw new Exception("Cette page n'existe pas");
+                                case "2" :
+                                    print '<tr><h1>ENEKATESTREAM</h1>';
+                                    print '<td><h2>Présentation des données | id_USER(2)</h2></tr>';
+                                    print '<td>'.$apiController->getUtilisateur2().'';
+                                break;
+
+                                case "3" :
+                                    print '<tr><h1>ENEKATESTREAM</h1>';
+                                    print '<td><h2>Présentation des données | id_USER(3)</h2></tr>';
+                                    print '<td>'.$apiController->getUtilisateur3().'';
+                                break;
+                            }
+
+                        default: throw new Exception("Cette page n'existe pas");
                 }
-            }
         
             break;
             case "back" : echo "page back end demandée";
