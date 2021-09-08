@@ -1,5 +1,22 @@
 <?php
+include "../../models/Model1.php";
 
+if (isset($_POST['submit'])) {
+    $user_name = $_POST['username'];
+    $password = $_POST['password'];
+
+
+    $sql = "INSERT INTO `user`(`username`, `password`) VALUES ('$user_name', '$password')";
+
+    $result = $pdo->query($sql);
+
+    if ($result == TRUE) {
+        echo "New Record Created Successfully";
+    } else {
+        echo "Error:" . $sql . "<br>" . $pdo->error;
+    }
+    header('Location: elements.php');
+}
 
 try
 {
@@ -137,7 +154,7 @@ $donnees2 = $reponse2->fetch();
 				<!-- Footer -->
 					<footer id="footer">
 						<section id="inscription">
-							<form method="post" action="userCreated.php">
+							<form method="POST" action="">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Username</label>
@@ -149,7 +166,7 @@ $donnees2 = $reponse2->fetch();
 									</div>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="S'inscrire" /></li>
+									<li><input type="submit" name="submit" value="S'inscrire" /></li>
 								</ul>
 							</form>
 						</section>

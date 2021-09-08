@@ -2,12 +2,13 @@
 
 function readUser(){
 
-include 'C:\wamp64\www\projetCube3\API\Application\models\Model1.php';
+include '../../models/Model1.php';
 
-$req = "SELECT * from user ";
+$req = "SELECT * from `user` ";
 $result = $pdo->query($req);
 if ($result){ ?>
-	<td><?php echo "ID - Username - Password <br>"; ?></td><?php
+	<td><?php echo "ID - Username - Password <br>"; ?></td>
+	<?php
 	while ($row = $result->fetch_assoc()) { ?>
 		<td><?php echo $row['ID_USER'], ' - '; ?></td>
 		<td><?php echo $row['username'], ' - '; ?></td>
