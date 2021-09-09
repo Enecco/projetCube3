@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "enekatestream";
+    $password = "enekatestream33";
     $dbname = "enekatestream";
 
     $pdo = new mysqli( $servername, $username, $password, $dbname);

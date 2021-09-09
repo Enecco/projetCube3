@@ -8,7 +8,7 @@ abstract class Model {
 
     // fonction statique qui va faire la connexion à la bdd
     private static function setBdd(){
-        self::$pdo = new PDO("mysql:host=localhost;dbname=enekatestream;", "root", "");
+        self::$pdo = new PDO("mysql:host=localhost;dbname=enekatestream;", "enekatestream;", "enekatestream33;");
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // genere erreur et avertissement pr connexion a la bdd
     }
 
