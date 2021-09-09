@@ -2,7 +2,7 @@
 include '../../models/Model1.php';
 
 if (isset($_POST['update'])) {
-    $user_id = $_GET['ID_USER'];
+    $user_id = $_GET['id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -12,15 +12,16 @@ if (isset($_POST['update'])) {
 
     if ($result == TRUE) {
         echo "Record Updated Successfully";
+        echo " <a href='elements.php'><input type='submit' value=\"Revenir à mon profil\"></a>";
     } else {
         echo "Error:" . $sql . "<br>" . $pdo->error;
     }
 }
 
-if (isset($_GET['ID_USER'])) {
-    $user_id = $_GET['ID_USER'];
+if (isset($_GET['id'])) {
+    $user_id = $_GET['id'];
 
-    $sql = "SELECT FROM `user` WHERE `ID_USER` = '$user_id'";
+    $sql = "SELECT * FROM `user` WHERE `ID_USER` = '$user_id'";
 
     $result = $pdo->query($sql);
 
@@ -55,10 +56,10 @@ if (isset($_GET['ID_USER'])) {
 </html>
     <?php
         } else {
-            //Si la valeur de l'id et incorrect alors l'utilisateur est renvoyé vers la page view.php
+            //Si la valeur de l'id et incorrect alors l'utilisateur est renvoyé vers la page elements.php
             header('Location: elements.php');
         }
-        header('Location: elements.php');
+        // header('Location: elements.php');
 
     }
 ?>
