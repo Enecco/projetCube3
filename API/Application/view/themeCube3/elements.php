@@ -7,12 +7,11 @@ include '../../models/Model1.php';
 $req = "SELECT * from `user` ";
 $result = $pdo->query($req);
 if ($result){ ?>
-	<td><?php echo "ID - Username - Password <br>"; ?></td>
+	<td><?php echo "ID - Username <br>"; ?></td>
 	<?php
 	while ($row = $result->fetch_assoc()) { ?>
 		<td><?php echo $row['ID_USER'], ' - '; ?></td>
 		<td><?php echo $row['username'], ' - '; ?></td>
-		<td><?php echo $row['password'], ' // '; ?></td>
 		<td><a class="btn btn-info" href="update.php?id=<?php echo $row['ID_USER']; ?>"><strong>Edit</strong>
                                     </a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['ID_USER']; ?>">
                                      <strong>Delete</strong></a></td>

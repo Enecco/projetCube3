@@ -29,7 +29,6 @@ if (isset($_GET['id'])) {
         while($row = $result->fetch_assoc()) {
             $user_name = $row['username'];
             $password = $row['password'];
-            $id = $row['ID_USER'];
         }
 ?>
 
@@ -42,9 +41,8 @@ if (isset($_GET['id'])) {
         <form action="" method="post">
             <fieldset>
                 <legend>Personal Information:</legend>
-                User Name:<br>
+                User Name:
                 <input type="text" name="username" value="<?php echo $user_name; ?>">
-                <input type="hiden" name="ID_USER" value="<?php echo $id; ?>">
                 <br>
                 Password:
                 <input type="password" name="password" value="<?php echo $password; ?>">
