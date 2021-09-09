@@ -4,8 +4,7 @@ include "../../models/Model1.php";
 if (isset($_POST['submit'])) {
     $user_name = $_POST['username'];
     $password = $_POST['password'];
-
-
+	$password = password_hash($password, PASSWORD_BCRYPT);
     $sql = "INSERT INTO `user`(`username`, `password`) VALUES ('$user_name', '$password')";
 
     $result = $pdo->query($sql);

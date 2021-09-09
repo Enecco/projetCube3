@@ -5,7 +5,8 @@ if (isset($_POST['update'])) {
     $user_id = $_GET['id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    $password = password_hash($password, PASSWORD_BCRYPT);
+    
     $sql = "UPDATE `user` SET `username` = '$username', `password` = '$password' WHERE `ID_USER` = '$user_id'";
 
     $result = $pdo->query($sql);
