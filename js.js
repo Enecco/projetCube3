@@ -4,8 +4,8 @@ let formMenu = document.querySelector('#menu');
 let submitCatalogue = document.getElementById('submitCatalogue');
 let submitContact = document.querySelector('#submitContact');
 
-submitCatalogue.textContent('wesh');
-submitCatalogue.addEventListener('click', () => {
-    console.log('bonsoir');
-    window.location.href = "https://google.fr";
+submitCatalogue.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = "catalogue.html";
 });
+
