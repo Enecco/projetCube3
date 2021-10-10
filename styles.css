@@ -2,3 +2,21 @@
     padding: 30px;
     text-align: center;
 }
+
+#pagesAnnexes {
+    padding: 30px;
+    text-align: left;
+}
+
+#titre1 {
+    color: blue;
+}
+
+#titre2 {
+    color: green;
+}
+
+#alignCenter {
+    align-items: center;
+    text-align: center;
+}
