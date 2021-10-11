@@ -1,22 +1,29 @@
-#recherche, h1 {
+.recherche, h1 {
     padding: 30px;
     text-align: center;
 }
 
-#pagesAnnexes {
+.pagesAnnexes {
     padding: 30px;
     text-align: left;
 }
 
-#titre1 {
+.titre {
+    font-weight: bold;
+}
+.titre1 {
     color: blue;
 }
 
-#titre2 {
+.titre2 {
     color: green;
 }
 
 #alignCenter {
     align-items: center;
     text-align: center;
+}
+
+.index {
+    background-color:rgb(72, 109, 72);
 }
