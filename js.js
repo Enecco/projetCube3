@@ -1,15 +1,8 @@
-let formRecherche = document.querySelector('#recherche');
+let espaceUser = document.querySelector("#espaceUser");
+let nomUser;
 
-let formMenu = document.querySelector('#menu');
-let submitCatalogue = document.getElementById('submitCatalogue');
-let submitContact = document.getElementById('submitContact');
+let btnInscription = document.querySelector("#btnInscription");
 
-submitCatalogue.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = "catalogue.html";
-});
 
-submitContact.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = "contact.html";
-});
+// espaceUser.addEventListener('click')
+// espaceUser.textContent = nomUser;
