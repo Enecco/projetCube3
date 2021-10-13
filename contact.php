@@ -1,3 +1,8 @@
+<?php
+
+$logged = false;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,40 +16,61 @@
 </head>
 <body class="bg-dark">
     
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">EnekateStream</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="catalogue.php">Catalogue
-              <span class="visually-hidden">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.php">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace User</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Films sauvegardés</a>
-              <a class="dropdown-item" href="#">Points films</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Mon profil</a>
-            </div>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.php">EnekateStream</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="catalogue.php">Catalogue
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.php">Contact</a>
+              </li>
+              <?php 
+                if($logged){
+              ?>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="espaceUser">Espace User</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Films sauvegardés</a>
+                      <a class="dropdown-item" href="#">Points films</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Mon profil</a>
+                    </div>
+                  </li>
+                <?php
+                }
+                else{
+              ?>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active green" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="espaceUser">Connexion</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="connexion.php">Se connecter</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="connexion.php">S'inscrire</a>
+                  </div>
+                </li>
+              <?php
+                }
+              ?>
+
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    <!-- /NavBar -->
 
     <div class="container-fluid">
         
@@ -89,7 +115,7 @@
         </div>
     </div>
 
-        <form action="index.html">
+        <form action="index.php">
             <input type="submit" value="Retour à l'accueil" class="btn btn-light">
         </form>
         <br>

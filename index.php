@@ -87,7 +87,7 @@ $logged = false;
     <div class="container">
         <br>    
 
-        <form class="form-floating" action="catalogue.html">
+        <form class="form-floating" action="catalogue.php">
             <input type="text" class="form-control" id="floatingInputValue">
             <label for="floatingInputValue">Recherche</label>
             <br>
