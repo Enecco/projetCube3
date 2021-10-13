@@ -1,0 +1,4 @@
+# partie configuration du serveur
+RewriteEngine On # Activer le module Rewrite
+
+RewriteRule ^$ Application/view/index.html
