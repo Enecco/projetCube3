@@ -1,6 +1,6 @@
 <?php
 
-include "../models/Model1.php";
+include "../models/Model.php";
 // print_r($_POST);
 // echo "<br></br>";
 

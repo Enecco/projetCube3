@@ -1,15 +1,18 @@
-let formRecherche = document.querySelector('#recherche');
+let espaceUser = document.querySelector("#espaceUser");
+let nomUser;
 
-let formMenu = document.querySelector('#menu');
-let submitCatalogue = document.getElementById('submitCatalogue');
-let submitContact = document.getElementById('submitContact');
+let btnInscription = document.querySelector("#btnInscription");
+let btnConnexion = document.querySelector("#btnConnexion");
+let unOuDeux = 0;
+let pageConnexion = document.querySelector('#pageConnexion');
+let pageInscription = document.querySelector('#pageInscription');
 
-submitCatalogue.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = "catalogue.html";
+btnConnexion.addEventListener('click', () => {
+      pageConnexion.style.display = 'block';
+      pageInscription.style.display = 'none';
 });
 
-submitContact.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = "contact.html";
+btnInscription.addEventListener('click', () => {
+    pageInscription.style.display = 'block';
+    pageConnexion.style.display = 'none';
 });
