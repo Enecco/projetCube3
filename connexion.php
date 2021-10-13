@@ -87,8 +87,9 @@ $logged = false;
             </div>
 
             <div id="pageConnexion" style="display: none;">
+            <br>
               <div class='container form-group row'>
-                <label for='staticEmail' class='col-sm-2 col-form-label'>TrucStatique</label>
+                <label for='staticEmail' class='col-sm-2 col-form-label'>Connecte toi !</label>
               </div>
               <div class='form-group'>
                 <label for='exampleInputEmail1' class='form-label mt-4'>Email address</label>
@@ -102,8 +103,9 @@ $logged = false;
             </div>
 
             <div id="pageInscription">
+            <br>
               <div class="container form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">TrucStatique</label>
+                <label for="staticEmail" class="col-sm-2 col-form-label">Inscris toi !</label>
               </div>
 
               <div class="form-group">

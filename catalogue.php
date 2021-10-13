@@ -72,124 +72,9 @@ $logged = false;
     </nav>
     <!-- /NavBar -->
 
-    <div style="display: none;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-                <!-- Toggle button -->
-                <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >
-                <i class="fas fa-bars"></i>
-                </button>
-        
-                <!-- Collapsible wrapper -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
-                    <img
-                    src="_logo - Copie.png"
-                    height="15"
-                    alt=""
-                    loading="lazy"
-                    />
-                </a>
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link" href="catalogue.html">Catalogue</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Mon profil</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <!-- Left links -->
-                </div>
-                <!-- Collapsible wrapper -->
-        
-                <!-- Right elements -->
-                <div class="d-flex align-items-center">
-                <!-- Icon -->
-                <a class="text-reset me-3" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-        
-                <!-- Notifications -->
-                <a
-                    class="text-reset me-3 dropdown-toggle hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">2</span>
-                </a>
-                <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                >
-                    <li>
-                    <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-        
-                <!-- Avatar -->
-                <a
-                    class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    <img
-                    src="https://mdbootstrap.com/img/new/avatars/2.jpg"
-                    class="rounded-circle"
-                    height="25"
-                    alt=""
-                    loading="lazy"
-                    />
-                </a>
-                <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuLink"
-                >
-                    <li>
-                    <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#">Logout</a>
-                    </li>
-                </ul>
-                </div>
-                <!-- Right elements -->
-            </div>
-            <!-- Container wrapper -->
-    </nav>
-    </div>
-
         <h1>Liste :</h1>
 <div class="container">
+
     <div class="row">
 
         <li class="text-light col" style="text-align: center;"><strong style="color:white;">Intouchables</strong>  
@@ -216,7 +101,7 @@ $logged = false;
 
         <li class="col"></li>
 
-        <li class="text-light col" style="text-align: center;"><strong>Avatar</strong>
+        <li class="text-light col" style="text-align: center;"><strong style="color: white;">Avatar</strong>
                 <img src="images/avatar.jpg" alt="BonsoirEh">
                 <ul class="nav nav-tabs row">
 
@@ -240,16 +125,17 @@ $logged = false;
 
         <li class="col"></li>
 
-        <li class="text-light col" style="text-align: center;"><strong>MORIARTY - Jimmy</strong>
+        <li class="text-light col" style="text-align: center;"><strong style="color: white;">MORIARTY - Jimmy</strong>
                 <iframe width="310" height="420" src="https://www.youtube.com/embed/NHhaZnnz5yE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
         </li>
 
     </div>
-<br><br>
+    <br><br>
+
     <div class="row">
 
-        <li class="text-light col" style="text-align: center;"><strong>The Karate Kid</strong>
+        <li class="text-light col" style="text-align: center;"><strong style="color: white;">The Karate Kid</strong>
                 <img src="images/karateKid.jpg" alt="BonsoirEh"width="310px" height="420px">
                 
                 <ul class="nav nav-tabs row">
@@ -274,7 +160,7 @@ $logged = false;
 
         <li class="col"></li>
 
-        <li class="text-light col" style="text-align: center;"><strong>Karate Kid 4</strong>
+        <li class="text-light col" style="text-align: center;"><strong style="color: white;">Karate Kid 4</strong>
                 <img src="images/KarateKid4.jpg" alt="BonsoirEh">
                 <ul class="nav nav-tabs row">
 
@@ -306,12 +192,14 @@ $logged = false;
 
     </div>
 </div>
-<br><br>
-        <a href="index.php" class="container-fluid">
-            <input type="submit" value="Retour à l'accueil" class="btn btn-light">
-        </a>
 
-    <br><br><br>
+  <br><br>
+
+    <a href="index.php" class="container-fluid">
+        <input type="submit" value="Retour à l'accueil" class="btn btn-light">
+    </a>
+
+  <br><br><br>
 
     <script src="bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
