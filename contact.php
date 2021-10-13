@@ -14,7 +14,7 @@ $logged = false;
     <link rel="stylesheet" href="bootstrap/cyborg/bootstrap.min.css">
     <title>Contact</title>
 </head>
-<body class="bg-dark">
+<body>
     
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

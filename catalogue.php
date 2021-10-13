@@ -14,7 +14,7 @@ $logged = false;
     <link rel="stylesheet" href="bootstrap/cyborg/bootstrap.min.css">
     <title>Catalogue</title>
 </head>
-<body class="bg-dark">
+<body>
     
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -192,9 +192,9 @@ $logged = false;
 <div class="container">
     <div class="row">
 
-        <li class="text-light col" style="text-align: center;"><strong>Intouchables</strong>  
-                <img src="intouchables.jpg" alt="BonsoirEh">
-                <ul class="nav nav-tabs bg-dark row">
+        <li class="text-light col" style="text-align: center;"><strong style="color:white;">Intouchables</strong>  
+                <img src="images/intouchables.jpg" alt="BonsoirEh">
+                <ul class="nav nav-tabs row">
 
                     <li class="nav-item col">
                       <a class="nav-link" data-bs-toggle="tab" href="#synopsisIntouchables">Synopsis</a>
@@ -213,10 +213,12 @@ $logged = false;
                     </div>
                 </div>
         </li>
+
         <li class="col"></li>
+
         <li class="text-light col" style="text-align: center;"><strong>Avatar</strong>
-                <img src="avatar.jpg" alt="BonsoirEh">
-                <ul class="nav nav-tabs bg-dark row">
+                <img src="images/avatar.jpg" alt="BonsoirEh">
+                <ul class="nav nav-tabs row">
 
                     <li class="nav-item col">
                       <a class="nav-link" data-bs-toggle="tab" href="#synopsisAvatar">Synopsis</a>
@@ -235,19 +237,22 @@ $logged = false;
                     </div>
                 </div>
         </li>
+
         <li class="col"></li>
+
         <li class="text-light col" style="text-align: center;"><strong>MORIARTY - Jimmy</strong>
                 <iframe width="310" height="420" src="https://www.youtube.com/embed/NHhaZnnz5yE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
         </li>
+
     </div>
 <br><br>
     <div class="row">
 
         <li class="text-light col" style="text-align: center;"><strong>The Karate Kid</strong>
-                <img src="karateKid.jpg" alt="BonsoirEh"width="310px" height="420px">
+                <img src="images/karateKid.jpg" alt="BonsoirEh"width="310px" height="420px">
                 
-                <ul class="nav nav-tabs bg-dark row">
+                <ul class="nav nav-tabs row">
 
                     <li class="nav-item col">
                       <a class="nav-link" data-bs-toggle="tab" href="#synopsisKk">Synopsis</a>
@@ -266,10 +271,12 @@ $logged = false;
                     </div>
                 </div>
         </li>
+
         <li class="col"></li>
+
         <li class="text-light col" style="text-align: center;"><strong>Karate Kid 4</strong>
-                <img src="KarateKid4.jpg" alt="BonsoirEh">
-                <ul class="nav nav-tabs bg-dark row">
+                <img src="images/KarateKid4.jpg" alt="BonsoirEh">
+                <ul class="nav nav-tabs row">
 
                     <li class="nav-item col">
                       <a class="nav-link" data-bs-toggle="tab" href="#synopsisKk4">Synopsis</a>
@@ -289,11 +296,13 @@ $logged = false;
                     </div>
                 </div>
         </li>
+
         <li class="col"></li>
-        <li class="text-light col" style="text-align: center;"><strong>MORIARTY - Jimmy</strong>
+
+        <!-- <li class="text-light col" style="text-align: center;"><strong>MORIARTY - Jimmy</strong>
           <iframe width="310" height="420" src="https://www.youtube.com/embed/NHhaZnnz5yE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
           </iframe>
-        </li>
+        </li> -->
 
     </div>
 </div>

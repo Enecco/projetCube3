@@ -83,7 +83,7 @@ $logged = false;
     <div class="container-fluid">
 
     <br>
-        <img src="_logo - Copie.png" style="text-align: center; margin: auto; display: flex;"/>
+        <img src="images/_logo - Copie.png" style="text-align: center; margin: auto; display: flex;"/>
     <div class="container">
         <br>    
 
