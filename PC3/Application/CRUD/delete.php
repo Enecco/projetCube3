@@ -1,6 +1,6 @@
 <?php 
 
-include "../models/Model1.php";
+include "../models/Model.php";
 
     if(isset($_GET['id'])) {
         $user_id = $_GET['id'];

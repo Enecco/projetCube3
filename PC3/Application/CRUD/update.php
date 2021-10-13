@@ -1,5 +1,5 @@
 <?php
-include "../models/Model1.php";
+include "../models/Model.php";
 
 if (isset($_POST['update'])) {
     $user_id = $_GET['id'];
