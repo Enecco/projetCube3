@@ -78,82 +78,79 @@ $logged = false;
 
     <form class="container">
         <fieldset>
-            <!-- <legend>Legend</legend> -->
+            <legend>Rejoignez-nous !</legend><br><br>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnConnexion" autocomplete="off" checked="">
                 <label class="btn btn-outline-primary" for="btnConnexion">Connexion</label>
                 <input type="radio" class="btn-check" name="btnradio" id="btnInscription" autocomplete="off" checked="">
                 <label class="btn btn-outline-primary" for="btnInscription">Inscription</label>
             </div>
-            <script>
-                let btnConnexion = document.querySelector("#btnConnexion");
-                let btnInscript = document.querySelector('#btnInscription');
-                let unOuDeux = 0;
-                    
-                let htmlConnexion = " <div class='form-group row'><label for='staticEmail' class='col-sm-2 col-form-label'>TrucStatique</label><div class='col-sm-10'><input type='text' readonly='' class='form-control-plaintext' id='staticEmail' value='UnTrucStatique'></div></div><div class='form-group'><label for='exampleInputEmail1' class='form-label mt-4'>Email address</label><input type='email' class='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email'><small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small></div><div class='form-group'><label for='exampleInputPassword1' class='form-label mt-4'>Password</label><input type='password' class='form-control' id='exampleInputPassword1' placeholder='Password'></div> ";
-                btnConnexion.addEventListener('click', () => {
-                    unOuDeux += 1;
-                    if(unOuDeux == 1){
-                    document.body.innerHTML += htmlConnexion;
-                    }
-                    else{
-                        document.body.innerHTML += 'bonsoir';
-                    }
-                });
-            </script>
-<br><br>
-            <div class="form-group row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">TrucStatique</label>
-            <div class="col-sm-10">
-                <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="UnTrucStatique">
-            </div>
+
+            <div id="pageConnexion" style="display: none;">
+              <div class='container form-group row'>
+                <label for='staticEmail' class='col-sm-2 col-form-label'>TrucStatique</label>
+              </div>
+              <div class='form-group'>
+                <label for='exampleInputEmail1' class='form-label mt-4'>Email address</label>
+                <input type='email' class='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email'>
+                <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small>
+              </div>
+              <div class='form-group'>
+              <label for='exampleInputPassword1' class='form-label mt-4'>Password</label>
+              <input type='password' class='form-control' id='exampleInputPassword1' placeholder='Password'>
+              </div>
             </div>
 
-            <div class="form-group">
-            <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div id="pageInscription">
+              <div class="container form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">TrucStatique</label>
+              </div>
+
+              <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div class="form-group">
+              <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+
+              <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4">Sexe</label>
+              <select class="form-select" id="exampleSelect1">
+                  <option>Féminin</option>
+                  <option>Masculin</option>
+              </select>
+              </div>
+
+              <fieldset class="form-group">
+                  <legend class="mt-4">Goûts cinématographiques</legend>
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                      Thriller
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                      <label class="form-check-label" for="flexCheckChecked">
+                      Comédie
+                      </label>
+                  </div>
+              </fieldset>
+
+              <div class="form-group">
+              <label for="exampleTextarea" class="form-label mt-4">Description</label>
+              <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              </div>
+
+              <div class="form-group">
+              <label for="formFile" class="form-label mt-4">Choisissez votre avatar</label>
+              <input class="form-control" type="file" id="formFile">
+              </div>
             </div>
-
-            <div class="form-group">
-            <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-
-            <div class="form-group">
-            <label for="exampleSelect1" class="form-label mt-4">Sexe</label>
-            <select class="form-select" id="exampleSelect1">
-                <option>Féminin</option>
-                <option>Masculin</option>
-            </select>
-            </div>
-
-            <fieldset class="form-group">
-                <legend class="mt-4">Goûts cinématographiques</legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    Thriller
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
-                    <label class="form-check-label" for="flexCheckChecked">
-                    Comédie
-                    </label>
-                </div>
-            </fieldset>
-
-            <div class="form-group">
-            <label for="exampleTextarea" class="form-label mt-4">Description</label>
-            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-            </div>
-
-            <div class="form-group">
-            <label for="formFile" class="form-label mt-4">Choisissez votre avatar</label>
-            <input class="form-control" type="file" id="formFile">
-            </div>
-
 <br><br>
             <button type="submit" class="btn btn-primary">Submit</button>
 <br><br><br>
