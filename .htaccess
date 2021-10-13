@@ -1,4 +1,8 @@
 # partie configuration du serveur
 RewriteEngine On # Activer le module Rewrite
 
+RewriteRule ^index.html$ PC3/Application/view/index.html
 RewriteRule ^$ PC3/Application/view/index.html
+RewriteRule ^catalogue.html$ PC3/Application/view/catalogue.html
+RewriteRule ^contact.html$ PC3/Application/view/contact.html
+RewriteRule ^connexion.html$ PC3/Application/view/connexion.html
