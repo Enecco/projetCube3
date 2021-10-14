@@ -1,5 +1,9 @@
 let espaceUser = document.querySelector("#espaceUser");
-let nomUser;
+let nomEspaceUser = document.querySelector("#nomEspaceUser");
+let espaceGuest = document.querySelector("#espaceGuest");
+let nomEspaceGuest = document.querySelector("#nomEspaceGuest");
+
+espaceUser.style.display = "none";
 
 let btnInscription = document.querySelector("#btnInscription");
 let btnConnexion = document.querySelector("#btnConnexion");
@@ -15,3 +19,5 @@ btnInscription.addEventListener('click', () => {
     pageInscription.style.display = 'block';
     pageConnexion.style.display = 'none';
 });
+
+

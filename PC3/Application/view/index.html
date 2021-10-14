@@ -35,25 +35,28 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
-
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="espaceUser">Espace User</a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Films sauvegardés</a>
-                      <a class="dropdown-item" href="#">Points films</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Mon profil</a>
-                    </div>
-                  </li>
-
-                  <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle active green" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="espaceUser">Connexion</a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="connexion.html">Se connecter</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="connexion.html">S'inscrire</a>
+                  <div id="espaceUser">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace User</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" id="nomEspaceUser">Films sauvegardés</a>
+                        <a class="dropdown-item" href="#">Points films</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Mon profil</a>
+                      </div>
+                    </li>
                   </div>
-                </li>
+
+                  <div id="espaceGuest">
+                    <li class="nav-item dropdown" id="espaceGuest">
+                      <a class="nav-link dropdown-toggle active green" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="nomEspaceGuest">Connexion</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="connexion.html">Se connecter</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="connexion.html">S'inscrire</a>
+                      </div>
+                    </li>
+                  </div>
 
             </ul>
             <form class="d-flex">
