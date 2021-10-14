@@ -3,7 +3,6 @@ let nomUser;
 
 let btnInscription = document.querySelector("#btnInscription");
 let btnConnexion = document.querySelector("#btnConnexion");
-let unOuDeux = 0;
 let pageConnexion = document.querySelector('#pageConnexion');
 let pageInscription = document.querySelector('#pageInscription');
 
