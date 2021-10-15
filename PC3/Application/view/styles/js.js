@@ -54,3 +54,14 @@ if((envoiConnexion)){
             }
         }
 });}
+
+// DEMARCHE A INVESTIGUER POUR LIEN AVEC PAGES PHP DE L'API
+
+// $('#envoiConnexion').click(function() {
+//     // L'URL du fichier dans lequel tu appelles ta fonctio
+//     var url = '../../CRUD/userCreated.php';
+//     $.post(url, function(data){
+//         // Tu affiches le contenu dans ta div
+//         $('#div_donnees').html(data);
+//     });
+// });
