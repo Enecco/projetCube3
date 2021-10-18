@@ -4,6 +4,7 @@ let espaceGuest = document.querySelector("#espaceGuest");
 let nomEspaceGuest = document.querySelector("#nomEspaceGuest");
 let logged = false;
 
+// CONDITION AUTHENTIFICATION REQUISE
 if(!logged){
     espaceUser.style.display = "none";
 }
@@ -17,13 +18,15 @@ let inscriptionEmail = document.querySelector('#inscriptionEmail');
 let envoiConnexion = document.querySelector('#envoiConnexion');
 let mode = 'inscription';
 
+
+// AFFICHAGE PAGE CONNEXION 
 if(btnConnexion){
 btnConnexion.addEventListener('click', () => {
       pageConnexion.style.display = 'block';
       pageInscription.style.display = 'none';
       mode = 'connexion';
 });}
-
+// AFFICHAGE PAGE INSCRIPTION
 if(btnInscription){
 btnInscription.addEventListener('click', () => {
     pageInscription.style.display = 'block';
@@ -31,6 +34,8 @@ btnInscription.addEventListener('click', () => {
     mode = 'inscription';
 });}
 
+
+// CONDITION D'ENVOI DU SUBMIT EN MODE INSCRIPTION
 if((envoiConnexion)){
     envoiConnexion.addEventListener('click', (e) => {
         e.preventDefault();
@@ -42,7 +47,7 @@ if((envoiConnexion)){
             else{
                 alert('Inscription : Tu as bien rempli les champs, bg');
             }
-
+// SINON EN MODE CONNEXION
         }
         else if(mode === 'connexion'){
 
