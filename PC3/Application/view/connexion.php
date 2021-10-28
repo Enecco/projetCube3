@@ -1,3 +1,9 @@
+<?php
+$inscriptionMail = $_POST['inscriptionEmail'];
+echo $inscriptionMail;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +18,6 @@
     <title>EnekateStream</title>
 </head>
 <body>
-
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -66,7 +71,7 @@
 
 <br><br>
 
-    <form class="container">
+    <form class="container" method="POST" action="#">
         <fieldset>
             <legend>Rejoignez-nous !</legend><br><br>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -100,7 +105,7 @@
 
               <div class="form-group">
               <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-              <input type="email" class="form-control" id="inscriptionEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="inscriptionEmail" name="inscriptionEmail" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
@@ -145,10 +150,26 @@
             </div>
 <br><br>
             <input type="submit" class="btn btn-primary" id="envoiConnexion" value="Envoyer">
+
 <br><br><br>
         </fieldset>
     </form>
 
+<?php
+  $logged = false;
+  if(!$logged){ 
+    echo "<script>
+    let espaceUser = document.querySelector('#espaceUser');
+    espaceUser.style.display = 'none';
+    </script>";
+  }
+  else{
+    echo "<script>
+    let espaceGuest = document.querySelector('#espaceGuest');
+    espaceGuest.style.display = 'none';
+    </script>";
+  }
+?>
     <script src="PC3/Application/view/styles/js.js"></script>
     <script src="bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
