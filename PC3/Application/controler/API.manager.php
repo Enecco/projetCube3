@@ -1,5 +1,5 @@
 <?php 
-require_once "models/Model.php";
+require_once "../models/Model.php";
 
 class APIManager extends Model {
 
@@ -180,7 +180,7 @@ class APIManager extends Model {
 
         //  ici station est une variable dans le cas où d'autres stations seraient créées par la suite et laisser le choix à l'administrateur
 
-        $req = "INSERT INTO `users`(`Nomcomplet`) VALUES (:Nomcomplet )";
+        $req = "INSERT INTO `user`(`mail`) VALUES (:Nomcomplet )";
         $stmt = $this->getBdd()->prepare($req); 
         $stmt->bindParam(':Nomcomplet', $Nomcomplet, PDO::PARAM_STR);
         $stmt->execute();

@@ -117,7 +117,7 @@
             Model::sendJSON($sondes);
         }
 
-        public function createUser($Nomcomplet ){
+        public function createUser($Nomcomplet){
             $users = $this->apimanager->createBDUser($Nomcomplet);
             Model::sendJSON($users);
         }

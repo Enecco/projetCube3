@@ -46,6 +46,13 @@ if((envoiConnexion)){
             }
             else{
                 alert('Inscription : Tu as bien rempli les champs, bg');
+                document.writeln(`<?php 
+                require_once "../controler/API.controller.php";
+                
+                $apicontrol = new APIController;
+                $apicontrol->createUser(${inscriptionEmail});
+                ?>`);
+
             }
 // SINON EN MODE CONNEXION
         }
