@@ -1,7 +1,30 @@
 <?php
-$inscriptionMail = $_POST['inscriptionEmail'];
-echo $inscriptionMail;
+session_start();
 
+require_once "../controler/API.controller.php";
+
+$apicontroler = new APIController();
+$logged = false;
+if (isset($_POST['inscriptionEmail']) && ($_POST['inscriptionPassword']) != '') {
+  $inscriptionMail = $_POST['inscriptionEmail'];
+  $inscriptionPassword = $_POST['inscriptionPassword'];
+  $apicontroler->createUser($inscriptionMail, $inscriptionPassword);
+  echo "User ".$inscriptionMail . " créé !";
+}
+
+if (isset($_POST['connexionEmail']) && ($_POST['connexionPassword']) != '') {
+  $connexionMail = $_POST['connexionEmail'];
+  $connexionPassword = $_POST['connexionPassword'];
+  $verif = $apicontroler->verifyLogin($connexionMail, $connexionPassword);
+
+  if($verif){
+    $_SESSION['logged'] = true;
+  }
+  else{
+    $_SESSION['logged'] = false;
+  }
+  
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,12 +111,12 @@ echo $inscriptionMail;
               </div>
               <div class='form-group'>
                 <label for='exampleInputEmail1' class='form-label mt-4'>Email address</label>
-                <input type='email' class='form-control' id='connexionEmail' aria-describedby='emailHelp' placeholder='Enter email'>
+                <input type='email' class='form-control' id='connexionEmail' name='connexionEmail' aria-describedby='emailHelp' placeholder='Enter email'>
                 <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small>
               </div>
               <div class='form-group'>
               <label for='InputPassword' class='form-label mt-4'>Password</label>
-              <input type='password' class='form-control' id='connexionPassword' placeholder='Password'>
+              <input type='password' class='form-control' id='connexionPassword' name="connexionPassword" placeholder='Password'>
               </div>
             </div>
 
@@ -111,7 +134,7 @@ echo $inscriptionMail;
 
               <div class="form-group">
               <label for="InputPassword1" class="form-label mt-4">Password</label>
-              <input type="password" class="form-control" id="inscriptionPassword" placeholder="Password">
+              <input type="password" class="form-control" id="inscriptionPassword" name="inscriptionPassword" placeholder="Password">
               </div>
 
               <div class="form-group">
@@ -156,8 +179,7 @@ echo $inscriptionMail;
     </form>
 
 <?php
-  $logged = false;
-  if(!$logged){ 
+  if(isset($_SESSION['logged']) && !($_SESSION['logged'])){ 
     echo "<script>
     let espaceUser = document.querySelector('#espaceUser');
     espaceUser.style.display = 'none';
