@@ -1,11 +1,11 @@
 <?php 
-require_once "models/Model.php";
+require_once "../models/Model.php";
 
 class APIManager extends Model {
 
     //A l'initialisation 
     public function getBDUsers(){
-        $req = "SELECT * FROM users";
+        $req = "SELECT * FROM user";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -13,6 +13,20 @@ class APIManager extends Model {
         return $user;
     }
 
+    public function verifyBDLogin($mail, $passwoord){
+        $sql = "SELECT `password` FROM user WHERE mail = :mail";
+        $stmt = $this->getBdd()->prepare($sql);
+        $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $stmt->execute();
+        $verify = $stmt->fetchAll();
+        $stmt->closeCursor();
+        if (isset($verify[0][0]) && $verify[0][0] == $passwoord) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     // Quand id User choisi:
     public function getBDSonde($user_sonde){
        // $req = "SELECT * from sonde as sd inner join station as s on s.IDStation = sd.IDStation WHERE sd.IDstation = :user_sonde
@@ -169,7 +183,7 @@ class APIManager extends Model {
 
     }
 
-    public function createBDUser($Nomcomplet){
+    public function createBDUser($Nomcomplet, $passwoord){
         // ! Axe d'amélioration : condition
 
         //  requete get avec id user voir si existe
@@ -180,9 +194,10 @@ class APIManager extends Model {
 
         //  ici station est une variable dans le cas où d'autres stations seraient créées par la suite et laisser le choix à l'administrateur
 
-        $req = "INSERT INTO `users`(`Nomcomplet`) VALUES (:Nomcomplet )";
+        $req = "INSERT INTO `user`(`mail`, `password`) VALUES (:Nomcomplet, :passwoord )";
         $stmt = $this->getBdd()->prepare($req); 
         $stmt->bindParam(':Nomcomplet', $Nomcomplet, PDO::PARAM_STR);
+        $stmt->bindParam(':passwoord', $passwoord, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
         return "USER CREEE :" . $Nomcomplet ;

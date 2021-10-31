@@ -1,13 +1,7 @@
-let espaceUser = document.querySelector("#espaceUser");
 let nomEspaceUser = document.querySelector("#nomEspaceUser");
-let espaceGuest = document.querySelector("#espaceGuest");
 let nomEspaceGuest = document.querySelector("#nomEspaceGuest");
-let logged = false;
-
 // CONDITION AUTHENTIFICATION REQUISE
-if(!logged){
-    espaceUser.style.display = "none";
-}
+
 
 
 let btnInscription = document.querySelector("#btnInscription");
@@ -38,10 +32,11 @@ btnInscription.addEventListener('click', () => {
 // CONDITION D'ENVOI DU SUBMIT EN MODE INSCRIPTION
 if((envoiConnexion)){
     envoiConnexion.addEventListener('click', (e) => {
-        e.preventDefault();
+        //
         if (mode === 'inscription') {
 
             if (inscriptionEmail.value === '' || inscriptionPassword.value === '') {
+                e.preventDefault();
                 alert('Inscription : Rempli les champs mail ET mdp');
             }
             else{
@@ -52,6 +47,7 @@ if((envoiConnexion)){
         else if(mode === 'connexion'){
 
             if (connexionEmail.value === '' || connexionPassword.value === '') {
+                e.preventDefault();
                 alert('Connexion : Tu n\'as pas indiqué ton mail ou ton mdp');
             }
             else{
@@ -59,14 +55,3 @@ if((envoiConnexion)){
             }
         }
 });}
-
-// DEMARCHE A INVESTIGUER POUR LIEN AVEC PAGES PHP DE L'API
-
-// $('#envoiConnexion').click(function() {
-//     // L'URL du fichier dans lequel tu appelles ta fonctio
-//     var url = '../../CRUD/userCreated.php';
-//     $.post(url, function(data){
-//         // Tu affiches le contenu dans ta div
-//         $('#div_donnees').html(data);
-//     });
-// });

@@ -12,9 +12,24 @@
         public function getUsers(){ 
             
            $users = $this->apimanager->getBDUsers();
-         Model::sendJSON($users);
+            Model::sendJSON($users);
 
         }
+
+        public function verifyLogin($mail, $passwoord){
+        $verif = $this->apimanager->verifyBDLogin($mail, $passwoord);
+        if ($verif) {
+            echo "You are connected to the user ". $mail;
+            return true;
+        }
+        else{
+            echo "We don't have that user in base. Try again.";
+            return false;
+        }
+        //Model::sendJSON($verif);
+        }
+
+
         public function getReleveUser($releve_user){
             $releve = $this->apimanager->getBDReleves($releve_user);
             Model::sendJSON($releve);
@@ -117,9 +132,9 @@
             Model::sendJSON($sondes);
         }
 
-        public function createUser($Nomcomplet ){
-            $users = $this->apimanager->createBDUser($Nomcomplet);
-            Model::sendJSON($users);
+        public function createUser($Nomcomplet, $passwoord){
+            $users = $this->apimanager->createBDUser($Nomcomplet, $passwoord);
+            //Model::sendJSON($users);
         }
 
 

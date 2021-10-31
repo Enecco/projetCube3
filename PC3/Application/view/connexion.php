@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+require_once "../controler/API.controller.php";
+
+$apicontroler = new APIController();
+$logged = false;
+if (isset($_POST['inscriptionEmail']) && ($_POST['inscriptionPassword']) != '') {
+  $inscriptionMail = $_POST['inscriptionEmail'];
+  $inscriptionPassword = $_POST['inscriptionPassword'];
+  $apicontroler->createUser($inscriptionMail, $inscriptionPassword);
+  echo "User ".$inscriptionMail . " créé !";
+}
+
+if (isset($_POST['connexionEmail']) && ($_POST['connexionPassword']) != '') {
+  $connexionMail = $_POST['connexionEmail'];
+  $connexionPassword = $_POST['connexionPassword'];
+  $verif = $apicontroler->verifyLogin($connexionMail, $connexionPassword);
+
+  if($verif){
+    $_SESSION['logged'] = true;
+  }
+  else{
+    $_SESSION['logged'] = false;
+  }
+  
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +41,6 @@
     <title>EnekateStream</title>
 </head>
 <body>
-
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -66,7 +94,7 @@
 
 <br><br>
 
-    <form class="container">
+    <form class="container" method="POST" action="#">
         <fieldset>
             <legend>Rejoignez-nous !</legend><br><br>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -83,12 +111,12 @@
               </div>
               <div class='form-group'>
                 <label for='exampleInputEmail1' class='form-label mt-4'>Email address</label>
-                <input type='email' class='form-control' id='connexionEmail' aria-describedby='emailHelp' placeholder='Enter email'>
+                <input type='email' class='form-control' id='connexionEmail' name='connexionEmail' aria-describedby='emailHelp' placeholder='Enter email'>
                 <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small>
               </div>
               <div class='form-group'>
               <label for='InputPassword' class='form-label mt-4'>Password</label>
-              <input type='password' class='form-control' id='connexionPassword' placeholder='Password'>
+              <input type='password' class='form-control' id='connexionPassword' name="connexionPassword" placeholder='Password'>
               </div>
             </div>
 
@@ -100,13 +128,13 @@
 
               <div class="form-group">
               <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-              <input type="email" class="form-control" id="inscriptionEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="inscriptionEmail" name="inscriptionEmail" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
               <div class="form-group">
               <label for="InputPassword1" class="form-label mt-4">Password</label>
-              <input type="password" class="form-control" id="inscriptionPassword" placeholder="Password">
+              <input type="password" class="form-control" id="inscriptionPassword" name="inscriptionPassword" placeholder="Password">
               </div>
 
               <div class="form-group">
@@ -145,11 +173,25 @@
             </div>
 <br><br>
             <input type="submit" class="btn btn-primary" id="envoiConnexion" value="Envoyer">
+
 <br><br><br>
         </fieldset>
     </form>
 
-
+<?php
+  if(isset($_SESSION['logged']) && !($_SESSION['logged'])){ 
+    echo "<script>
+    let espaceUser = document.querySelector('#espaceUser');
+    espaceUser.style.display = 'none';
+    </script>";
+  }
+  else{
+    echo "<script>
+    let espaceGuest = document.querySelector('#espaceGuest');
+    espaceGuest.style.display = 'none';
+    </script>";
+  }
+?>
     <script src="PC3/Application/view/styles/js.js"></script>
     <script src="bootstrap/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
