@@ -6,3 +6,4 @@ RewriteRule ^$ PC3/Application/view/index.php
 RewriteRule ^catalogue.html$ PC3/Application/view/catalogue.php
 RewriteRule ^contact.html$ PC3/Application/view/contact.php
 RewriteRule ^connexion.html$ PC3/Application/view/connexion.php
+RewriteRule ^deco.html$ PC3/Application/view/deco.php
