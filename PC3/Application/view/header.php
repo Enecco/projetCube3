@@ -38,7 +38,7 @@ session_start();
                     <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace User</a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="#" id="nomEspaceUser">Films sauvegardés</a>
-                      <a class="dropdown-item" href="#">Mon profil</a>
+                      <a class="dropdown-item" href="profil.html">Mon profil</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" name="deconnexion" href="deco.html">Deconnexion</a>
                     </div>

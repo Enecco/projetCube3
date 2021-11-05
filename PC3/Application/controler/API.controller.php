@@ -29,15 +29,6 @@
         //Model::sendJSON($verif);
         }
 
-
-        public function getReleveUser($releve_user){
-            $releve = $this->apimanager->getBDReleves($releve_user);
-            Model::sendJSON($releve);
-        }
-        public function getUser($user_sonde){
-            $sonde = $this->apimanager->getBDSonde($user_sonde);
-            Model::sendJSON($sonde);
-        }
         public function formatDataLigneSonde($ligneSonde){
          $tabsonde = [];
             foreach($ligneSonde as $sondes){
@@ -134,6 +125,11 @@
 
         public function createUser($Nomcomplet, $passwoord){
             $users = $this->apimanager->createBDUser($Nomcomplet, $passwoord);
+            //Model::sendJSON($users);
+        }
+
+        public function getIDUser($Nomcomplet){
+            $id = $this->apimanager->getIDBDUser($Nomcomplet);
             //Model::sendJSON($users);
         }
 

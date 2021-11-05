@@ -119,7 +119,7 @@ class APIManager extends Model {
         // "existe pas"
 
          // if id existe  
-        $req = "DELETE FROM `users` WHERE IDUser =:IDUser";
+        $req = "DELETE FROM `user` WHERE ID_USER =:IDUser";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindParam(':IDUser', $IDUser, PDO::PARAM_INT);
         $stmt->execute();
@@ -205,6 +205,17 @@ class APIManager extends Model {
     }
 
 
+    public function getIDBDUser($Nomcomplet){
+
+        $req = "SELECT ID_USER where mail =:nomcomplet";
+        $stmt = $this->getBdd()->prepare($req); 
+        $stmt->bindParam(':nomcomplet', $Nomcomplet, PDO::PARAM_STR);
+        $stmt->execute();
+        $stmt->closeCursor();
+        $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $id;
+
+    }
 
 
 }

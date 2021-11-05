@@ -12,8 +12,9 @@ if (isset($_POST['inscriptionEmail']) && ($_POST['inscriptionPassword']) != '') 
 }
 
 if (isset($_POST['connexionEmail']) && ($_POST['connexionPassword']) != '') {
-  $connexionMail = $_POST['connexionEmail'];
-  $connexionPassword = $_POST['connexionPassword'];
+  $_SESSION['nomUser'] = $connexionMail = $_POST['connexionEmail'];
+  $_SESSION['mdpUser'] = $connexionPassword = $_POST['connexionPassword'];
+
   $verif = $apicontroler->verifyLogin($connexionMail, $connexionPassword);
 
   if($verif){
