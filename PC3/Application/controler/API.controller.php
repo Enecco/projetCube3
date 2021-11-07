@@ -106,7 +106,7 @@
         // DELETE 
         public function deleteUser($IDUser){
             $users = $this->apimanager->deleteBDUser($IDUser);
-            Model::sendJSON($users);
+            return $users;
         }
         public function deleteSonde($IDSonde){
             $sondes = $this->apimanager->deleteBDSonde($IDSonde);
@@ -128,9 +128,9 @@
             //Model::sendJSON($users);
         }
 
-        public function getIDUser($Nomcomplet){
-            $id = $this->apimanager->getIDBDUser($Nomcomplet);
-            //Model::sendJSON($users);
+        public function getIDUser($lemail){
+            $id = $this->apimanager->getIDBDUser($lemail);
+            return $id;
         }
 
 

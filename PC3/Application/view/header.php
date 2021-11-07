@@ -47,11 +47,11 @@ session_start();
 
                 <div id="espaceGuest">
                   <li class="nav-item dropdown" id="espaceGuest">
-                    <a class="nav-link dropdown-toggle active green" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="nomEspaceGuest">Connexion</a>
+                    <a class="nav-link dropdown-toggle active green" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion</a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="connexion.html">Se connecter</a>
+                      <a class="dropdown-item" id="seConnecter" href="connexion.html">Se connecter</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="connexion.html">S'inscrire</a>
+                      <a class="dropdown-item" id="sInscrire">S'inscrire</a>
                     </div>
                   </li>
                 </div>

@@ -1,5 +1,6 @@
 let nomEspaceUser = document.querySelector("#nomEspaceUser");
-let nomEspaceGuest = document.querySelector("#nomEspaceGuest");
+let seConnecter = document.querySelector("#seConnecter");
+let sInscrire = document.querySelector("#sInscrire");
 // CONDITION AUTHENTIFICATION REQUISE
 
 
@@ -17,7 +18,23 @@ let tdMdp = document.querySelector('#tdMdp');
 let mode = 'inscription';
 let divProfilPassword = document.querySelector('#divProfilPassword');
 let validNewMdp = document.querySelector('#validNewMdp');
+// AFFICHAGE PAGE CONNEXION DEPUIS NAVBAR
+if(seConnecter){
+    seConnecter.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'connexion.html';
+        pageConnexion.style.display = 'block';
+        pageInscription.style.display = 'none';
+        mode = 'connexion';
+});}
 
+// AFFICHAGE PAGE INSCRIPTION DEPUIS NAVBAR
+if(btnInscription){
+    btnInscription.addEventListener('click', () => {
+        pageInscription.style.display = 'block';
+        pageConnexion.style.display = 'none';
+        mode = 'inscription';
+});}
 
 // AFFICHAGE PAGE CONNEXION 
 if(btnConnexion){
@@ -46,7 +63,7 @@ if(envoiConnexion){
                 alert('Inscription : Rempli les champs mail ET mdp');
             }
             else{
-                alert('Inscription : Tu as bien rempli les champs, bg');
+                alert('Inscription : Tu as bien rempli les champs, tu es incris.');
             }
 // SINON EN MODE CONNEXION
         }
@@ -89,6 +106,6 @@ else if(modifyUser && modeModif > 0) {
     }
 
 
-validNewMdp.addEventListener('click', () => {
-    location.reload();
-});
+// validNewMdp.addEventListener('click', () => {
+//     location.reload();
+// });

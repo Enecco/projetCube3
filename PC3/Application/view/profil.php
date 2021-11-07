@@ -4,15 +4,20 @@ require "header.php";
 
 $apicontrol = new APIController();
 
-if(isset($_POST['floatingpassword']) && isset($_POST['validNewMdp']))
-$floatingPassword = $_POST['floatingpassword'];
 
+
+if(isset($_POST['floatingpassword']) && isset($_POST['validNewMdp'])){
+$floatingPassword = $_POST['floatingpassword'];
+echo "mdp pas encore changé mais php fonctionne !" . $floatingPassword;
+var_dump($floatingPassword);
+}
 
 if (isset($_POST['deleteUser'])) {
     $lid = $apicontrol->getIDUser($_SESSION['nomUser']);
-    echo $lid;
-    // $apicontrol->deleteUser($lid);
-    // header("Location : index.html");
+    var_dump($lid[0][0]);
+    $delete = $apicontrol->deleteUser($lid[0][0]);
+    sleep(1);
+    header("Location: deco.html");
 }
 
 ?>
@@ -44,17 +49,20 @@ if (isset($_POST['deleteUser'])) {
   </tbody>
 </table>
 
-<form action="#" method="POST">
+
 <button type="button" class="btn btn-primary" id="modifyUser">Modifier le mot de passe utilisateur</button>
+<form action="#" method="POST">
 <input type="submit" class="btn btn-danger" name="deleteUser" id="deleteUser" value="Supprimer l'utilisateur">
 </form>
 
 <br><br>
 
 <div class="form-floating" style="display: none;" id="divProfilPassword">
-    <input type="text" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password" value="<?php echo $_SESSION['mdpUser'] ?>">
+    <input type="text" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="<?php echo $_SESSION['mdpUser'] ?>">
     <label for="floatingPassword">Entrez votre nouveau mot de passe :</label>
-    <button type="button" class="btn btn-success" name="validNewMdp" id="validNewMdp">Valider</button>
+    <form action="#" method="POST">
+    <input type="submit" class="btn btn-success" name="validNewMdp" id="validNewMdp">Valider</button>
+    </form>
 </div>
 
 
