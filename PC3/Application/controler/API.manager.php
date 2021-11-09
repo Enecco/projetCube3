@@ -1,6 +1,7 @@
 <?php 
 require_once "../models/Model.php";
 
+
 class APIManager extends Model {
 
     //A l'initialisation 
@@ -119,13 +120,14 @@ class APIManager extends Model {
         // "existe pas"
 
          // if id existe  
-        $req = "DELETE FROM `users` WHERE IDUser =:IDUser";
+        
+        $req = "DELETE FROM `user` WHERE ID_USER =:IDUser";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindParam(':IDUser', $IDUser, PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
 
-        return "Utilisateur supprimé" . $IDUser ;
+        return "Utilisateur n°". $IDUser . " supprimé";
     }
     public function deleteBDSonde($IDSonde){
 
@@ -205,6 +207,17 @@ class APIManager extends Model {
     }
 
 
+    public function getIDBDUser($lemail){
+
+        $req = "SELECT ID_USER FROM user WHERE mail =:lemail";
+        $stmt = $this->getBdd()->prepare($req); 
+        $stmt->bindParam(':lemail', $lemail, PDO::PARAM_STR);
+        $stmt->execute();
+        //$stmt->closeCursor();
+        $id = $stmt->fetchAll();
+        return $id;
+        
+    }
 
 
 }
