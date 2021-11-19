@@ -1,8 +1,8 @@
 <?php
-require "../controler/API.controller.php";
+require "../controler/AppRestController.php";
 require "header.php";
 
-$apicontrol = new APIController();
+$apicontrol = new AppRestController();
 
 
 

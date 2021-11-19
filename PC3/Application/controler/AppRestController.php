@@ -1,23 +1,24 @@
 <?php
- require_once "API.manager.php";
+ require_once "AppDAO.php";
  require_once "../models/Model.php";
 
+ // On pourrais l'appeller "AppRestController" #TODO
 
-    class APIController {
-        private $apimanager;
+    class AppRestController {
+        private $AppDAO;
     
         public function __construct(){
-            $this->apimanager = new APIManager();
+            $this->AppDAO = new AppDAO();
        }
         public function getUsers(){ 
             
-           $users = $this->apimanager->getBDUsers();
+           $users = $this->AppDAO->getBDUsers();
             Model::sendJSON($users);
 
         }
 
         public function verifyLogin($mail, $passwoord){
-        $verif = $this->apimanager->verifyBDLogin($mail, $passwoord);
+        $verif = $this->AppDAO->verifyBDLogin($mail, $passwoord);
         if ($verif) {
             echo "You are connected to the user ". $mail;
             return true;
@@ -71,26 +72,26 @@
 
 
         public function getReleve(){
-            $releve = $this->apimanager->getBDReleve();
+            $releve = $this->AppDAO->getBDReleve();
             Model::sendJSON($releve);
 
         }
 
         public function getDernierReleve($user_sonde){
-            $dernierReleve = $this->apimanager->getBDdernierReleve($user_sonde);
+            $dernierReleve = $this->AppDAO->getBDdernierReleve($user_sonde);
             Model::sendJSON($dernierReleve);
 
         }
 
         public function getDerniersReleves(){
-            $derniersReleves = $this->apimanager->getBDderniersReleves();
+            $derniersReleves = $this->AppDAO->getBDderniersReleves();
             Model::sendJSON($derniersReleves);
 
         }
 
     
         public function getStation(){
-            $station = $this->apimanager->getBDStation();
+            $station = $this->AppDAO->getBDStation();
             Model::sendJSON($station);
             // echo "<pre>";
             // print_r($stations);
@@ -98,38 +99,38 @@
            
         }
         public function getSondes(){
-            $sondes = $this->apimanager->getBDSondes();
+            $sondes = $this->AppDAO->getBDSondes();
             Model::sendJSON($sondes);
         }
         
 
         // DELETE 
         public function deleteUser($IDUser){
-            $users = $this->apimanager->deleteBDUser($IDUser);
+            $users = $this->AppDAO->deleteBDUser($IDUser);
             return $users;
         }
         public function deleteSonde($IDSonde){
-            $sondes = $this->apimanager->deleteBDSonde($IDSonde);
+            $sondes = $this->AppDAO->deleteBDSonde($IDSonde);
             Model::sendJSON($sondes);
         }
         public function deleteReleve($IDReleve){
-            $releves = $this->apimanager->deleteBDReleve($IDReleve);
+            $releves = $this->AppDAO->deleteBDReleve($IDReleve);
             Model::sendJSON($releves);
         }
 
         // CREATE
         public function createSonde($model, $IdStation ){
-            $sondes = $this->apimanager->createBDSonde($model, $IdStation );
+            $sondes = $this->AppDAO->createBDSonde($model, $IdStation );
             Model::sendJSON($sondes);
         }
 
         public function createUser($Nomcomplet, $passwoord){
-            $users = $this->apimanager->createBDUser($Nomcomplet, $passwoord);
+            $users = $this->AppDAO->createBDUser($Nomcomplet, $passwoord);
             //Model::sendJSON($users);
         }
 
         public function getIDUser($lemail){
-            $id = $this->apimanager->getIDBDUser($lemail);
+            $id = $this->AppDAO->getIDBDUser($lemail);
             return $id;
         }
 

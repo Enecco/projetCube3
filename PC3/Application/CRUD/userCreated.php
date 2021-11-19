@@ -17,8 +17,8 @@ if($result == TRUE){
 else{
     echo "Error:" . $sql . "<br>" . $pdo->error;
 }
-// require '../../models/front/API.manager.php';
-// require "C:\wamp64\www\projetCube3\API\Application\models\\front\API.manager.php";
+// require '../../models/front/AppDAO.php';
+// require "C:\wamp64\www\projetCube3\API\Application\models\\front\AppDAO.php";
 // $apimanage = new APIManager();
 // $apimanage->createBDUser();
 // APIManager::createBDUser();

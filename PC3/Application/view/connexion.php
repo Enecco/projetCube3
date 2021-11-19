@@ -1,8 +1,8 @@
 <?php
-require_once "../controler/API.controller.php";
+require_once "../controler/AppRestController.php";
 require "header.php";
 
-$apicontroler = new APIController();
+$apicontroler = new AppRestController();
 $logged = false;
 if (isset($_POST['inscriptionEmail']) && ($_POST['inscriptionPassword']) != '') {
   $inscriptionMail = $_POST['inscriptionEmail'];
