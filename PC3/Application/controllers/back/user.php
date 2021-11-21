@@ -1,5 +1,5 @@
 <?php
-require_once 'headers.php';
+require_once '../../models/headers.php';
 
 $conn = new mysqli('localhost', 'root', '', 'enekatestream');
 
