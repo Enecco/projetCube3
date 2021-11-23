@@ -1,58 +1,38 @@
 <?php
-require_once '../../models/headers.php';
+include_once '../dbh.php';
+include_once '../vendor/autoload.php';
 
-$conn = new mysqli('localhost', 'root', '', 'enekatestream');
+use \Firebase\JWT\JWT;
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  if (isset($_GET['id'])) {
-    $id = $conn->real_escape_string($_GET['id']);
-    $sql = $conn->query("SELECT * FROM `user` WHERE `ID_USER` = '$id'");
-    $data = $sql->fetch_assoc();
-  } else {
-    $data = array();
-    $sql = $conn->query("SELECT * FROM user");
-    while ($d = $sql->fetch_assoc()) {
-      $data[] = $d;
-    }
-  }
+include_once '../cors.php';
 
-  exit(json_encode($data));
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $data = json_decode(file_get_contents("php://input"));
-  echo $data->username;
-  $sql = $conn->query("INSERT INTO `user` (username, password, register_date) VALUES ('".$data->username."', '".$data->password."', '".$data->register_date."')");
 
-  if ($sql) {
-      $data->ID_USER = $conn->insert_id;
-      exit(json_encode($data));
+$uname = $data->username;
+  $pass = $data->password;
+
+  $sql = $conn->query("SELECT * FROM users WHERE username = '$uname'"); 
+  if ($sql->num_rows > 0) {
+      $user = $sql->fetch_assoc();
+      if (password_verify($pass, $user['password'])) {
+          $key = "YOUR_SECRET_KEY";  // JWT KEY
+          $payload = array(
+        'user_id' => $user['id'],
+        'username' => $user['username'],
+        'firstname' => $user['firstname'],
+        'lastname' => $user['lastname']
+          );
+
+          $token = JWT::encode($payload, $key);
+          http_response_code(200);
+          echo json_encode(array('token' => $token));
+      } else {
+          http_response_code(400);
+          echo json_encode(array('message' => 'Login Failed!'));
+      }
   } else {
-      exit(json_encode(array('status' => 'error')));
-  }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-  if (isset($_GET['id'])) {
-    $id = $conn->real_escape_string($_GET['id']);
-    $data = json_decode(file_get_contents("php://input"));
-    $sql = $conn->query("UPDATE `user` SET  username = '".$data->username."', password = '".$data->password."', register_date = '".$data->register_date."' WHERE `ID_USER` = '$id'");
-    if ($sql) {
-      exit(json_encode(array('status' => 'success')));
-    } else {
-      exit(json_encode(array('status' => 'error')));
-    }
-  }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-  if (isset($_GET['id'])) {
-    $id = $conn->real_escape_string($_GET['id']);
-    $sql = $conn->query("DELETE FROM `user` WHERE `ID_USER` = '$id'");
-    if ($sql) {
-      exit(json_encode(array('status' => 'success')));
-    } else {
-      exit(json_encode(array('status' => 'error')));
-    }
+      http_response_code(400);
+      echo json_encode(array('message' => 'Login Failed!'));
   }
 }
