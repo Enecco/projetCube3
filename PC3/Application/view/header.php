@@ -51,7 +51,7 @@ session_start();
                     <div class="dropdown-menu">
                       <a class="dropdown-item" id="seConnecter" href="connexion.html">Se connecter</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" id="sInscrire">S'inscrire</a>
+                      <a class="dropdown-item" id="sInscrire" href="connexion.html">S'inscrire</a>
                     </div>
                   </li>
                 </div>

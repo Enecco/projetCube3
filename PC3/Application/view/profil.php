@@ -6,10 +6,9 @@ $apicontrol = new AppRestController();
 
 
 
-if(isset($_POST['floatingpassword']) && isset($_POST['validNewMdp'])){
-$floatingPassword = $_POST['floatingpassword'];
-echo "mdp pas encore changé mais php fonctionne !" . $floatingPassword;
-var_dump($floatingPassword);
+if(isset($_POST['validNewMdp'])){
+$newMDP = $_POST['newMDP'];
+echo "mdp pas encore changé mais php fonctionne !" . $newMDP;
 }
 
 if (isset($_POST['deleteUser'])) {
@@ -57,12 +56,12 @@ if (isset($_POST['deleteUser'])) {
 
 <br><br>
 
+
 <div class="form-floating" style="display: none;" id="divProfilPassword">
-    <input type="text" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="<?php echo $_SESSION['mdpUser'] ?>">
-    <label for="floatingPassword">Entrez votre nouveau mot de passe :</label>
-    <form action="#" method="POST">
-    <input type="submit" class="btn btn-success" name="validNewMdp" id="validNewMdp">Valider</button>
-    </form>
+  <form action="#" method="POST">
+    <input type="text" class="form-control" id="newMDP" name="newMDP" placeholder="<?php echo $_SESSION['mdpUser'] ?>">
+    <input type="submit" class="btn btn-success" name="validNewMdp" id="validNewMdp">
+  </form>
 </div>
 
 
