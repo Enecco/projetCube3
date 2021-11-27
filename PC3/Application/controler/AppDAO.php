@@ -14,10 +14,10 @@ class AppDAO extends Model {
         return $user;
     }
 
-    public function verifyBDLogin($mail, $passwoord){
-        $sql = "SELECT `password` FROM user WHERE mail = :mail";
+    public function verifyBDLogin($username, $passwoord){
+        $sql = "SELECT `password` FROM user WHERE username = :username";
         $stmt = $this->getBdd()->prepare($sql);
-        $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         $verify = $stmt->fetchAll();
         $stmt->closeCursor();
@@ -58,7 +58,7 @@ class AppDAO extends Model {
 
          // if id existe  
         
-        $req = "DELETE FROM `user` WHERE ID_USER =:IDUser";
+        $req = "DELETE FROM `user` WHERE user_id =:IDUser";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindParam(':IDUser', $IDUser, PDO::PARAM_INT);
         $stmt->execute();
@@ -70,7 +70,7 @@ class AppDAO extends Model {
     // CREATE
     public function createBDUser($Nomcomplet, $passwoord){
 
-        $req = "INSERT INTO `user`(`mail`, `password`) VALUES (:Nomcomplet, :passwoord )";
+        $req = "INSERT INTO `user`(`username`, `password`) VALUES (:Nomcomplet, :passwoord )";
         $stmt = $this->getBdd()->prepare($req); 
         $stmt->bindParam(':Nomcomplet', $Nomcomplet, PDO::PARAM_STR);
         $stmt->bindParam(':passwoord', $passwoord, PDO::PARAM_STR);
@@ -83,7 +83,7 @@ class AppDAO extends Model {
 
     public function getIDBDUser($lemail){
 
-        $req = "SELECT ID_USER FROM user WHERE mail =:lemail";
+        $req = "SELECT user_id FROM user WHERE username =:lemail";
         $stmt = $this->getBdd()->prepare($req); 
         $stmt->bindParam(':lemail', $lemail, PDO::PARAM_STR);
         $stmt->execute();
@@ -95,13 +95,13 @@ class AppDAO extends Model {
 
     public function modifyMdpBDUser($lid, $newMdp){
 
-        $req = "UPDATE info SET password=:newMdp WHERE id=:lid";
+        $req = "UPDATE user SET password=:newMdp WHERE user_id=:lid";
         $stmt = $this->getBdd()->prepare($req); 
-        $stmt->bindParam(':lid', $lid, PDO::PARAM_STR);
+        $stmt->bindParam(':lid', $lid, PDO::PARAM_INT);
         $stmt->bindParam(':newMdp', $newMdp, PDO::PARAM_STR);
         $stmt->execute();
-        //$stmt->closeCursor();
-        $id = $stmt->fetchAll();
+        $stmt->closeCursor();
+        //$id = $stmt->fetchAll();
         // return (echo"Mdp modifié");
         
     }

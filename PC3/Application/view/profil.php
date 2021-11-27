@@ -3,17 +3,15 @@ require "../controler/AppRestController.php";
 require "header.php";
 
 $apicontrol = new AppRestController();
-
+$lid = $apicontrol->getIDUser($_SESSION['nomUser']);
 
 
 if(isset($_POST['validNewMdp'])){
-$newMDP = $_POST['newMDP'];
-echo "mdp pas encore changé mais php fonctionne !" . $newMDP;
+$newMDP = $apicontrol->modifyMdpBDUser($lid, $_POST['newMDP']);
+echo "Mot de passe changé en : " . $newMDP;
 }
 
 if (isset($_POST['deleteUser'])) {
-    $lid = $apicontrol->getIDUser($_SESSION['nomUser']);
-    var_dump($lid[0][0]);
     $delete = $apicontrol->deleteUser($lid[0][0]);
     sleep(1);
     header("Location: deco.html");
