@@ -2,7 +2,10 @@
 
 session_start();
 
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +28,7 @@ session_start();
     
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item">
+            <li class="nav-item" id="catalogua" style="display: none;">
               <a class="nav-link" href="catalogue.html">Catalogue
                 <span class="visually-hidden">(current)</span>
               </a>
@@ -51,7 +54,7 @@ session_start();
                     <div class="dropdown-menu">
                       <a class="dropdown-item" id="seConnecter" href="connexion.html">Se connecter</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" id="sInscrire">S'inscrire</a>
+                      <a class="dropdown-item" id="sInscrire" href="connexion.html">S'inscrire</a>
                     </div>
                   </li>
                 </div>
@@ -65,3 +68,17 @@ session_start();
       </div>
     </nav>
     <!-- /NavBar -->
+
+    <?php
+
+        if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+          echo "<script>
+          let catalogua = document.querySelector('#catalogua');
+          catalogua.style.display = 'block';
+          </script>";
+        }
+        else{
+
+        }
+
+    ?>

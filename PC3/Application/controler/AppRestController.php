@@ -68,40 +68,6 @@
     
         //     return $tab;
         // }
-
-
-
-        public function getReleve(){
-            $releve = $this->AppDAO->getBDReleve();
-            Model::sendJSON($releve);
-
-        }
-
-        public function getDernierReleve($user_sonde){
-            $dernierReleve = $this->AppDAO->getBDdernierReleve($user_sonde);
-            Model::sendJSON($dernierReleve);
-
-        }
-
-        public function getDerniersReleves(){
-            $derniersReleves = $this->AppDAO->getBDderniersReleves();
-            Model::sendJSON($derniersReleves);
-
-        }
-
-    
-        public function getStation(){
-            $station = $this->AppDAO->getBDStation();
-            Model::sendJSON($station);
-            // echo "<pre>";
-            // print_r($stations);
-            // echo "</pre>";
-           
-        }
-        public function getSondes(){
-            $sondes = $this->AppDAO->getBDSondes();
-            Model::sendJSON($sondes);
-        }
         
 
         // DELETE 
@@ -109,21 +75,9 @@
             $users = $this->AppDAO->deleteBDUser($IDUser);
             return $users;
         }
-        public function deleteSonde($IDSonde){
-            $sondes = $this->AppDAO->deleteBDSonde($IDSonde);
-            Model::sendJSON($sondes);
-        }
-        public function deleteReleve($IDReleve){
-            $releves = $this->AppDAO->deleteBDReleve($IDReleve);
-            Model::sendJSON($releves);
-        }
+
 
         // CREATE
-        public function createSonde($model, $IdStation ){
-            $sondes = $this->AppDAO->createBDSonde($model, $IdStation );
-            Model::sendJSON($sondes);
-        }
-
         public function createUser($Nomcomplet, $passwoord){
             $users = $this->AppDAO->createBDUser($Nomcomplet, $passwoord);
             //Model::sendJSON($users);
@@ -134,5 +88,7 @@
             return $id;
         }
 
-
+        public function modifyMdpBDUser($lid, $newMdp){
+            $leNew = $this->AppDAO->modifyMdpBDUser($lid, $newMdp);
+        }
     }

@@ -3,18 +3,17 @@ require "../controler/AppRestController.php";
 require "header.php";
 
 $apicontrol = new AppRestController();
+$idsession = $apicontrol->getIDUser($_SESSION['nomUser']);
+$lid = $idsession[0][0];
 
-
-
-if(isset($_POST['floatingpassword']) && isset($_POST['validNewMdp'])){
-$floatingPassword = $_POST['floatingpassword'];
-echo "mdp pas encore changé mais php fonctionne !" . $floatingPassword;
-var_dump($floatingPassword);
+if(isset($_POST['validNewMdp'])){
+$newMDP = $_POST['newMDP'];
+$apicontrol->modifyMdpBDUser($lid, $_POST['newMDP']);
+$_SESSION['mdpUser'] = $newMDP;
+echo "Mot de passe changé en : " . $newMDP;
 }
 
 if (isset($_POST['deleteUser'])) {
-    $lid = $apicontrol->getIDUser($_SESSION['nomUser']);
-    var_dump($lid[0][0]);
     $delete = $apicontrol->deleteUser($lid[0][0]);
     sleep(1);
     header("Location: deco.html");
@@ -57,12 +56,12 @@ if (isset($_POST['deleteUser'])) {
 
 <br><br>
 
+
 <div class="form-floating" style="display: none;" id="divProfilPassword">
-    <input type="text" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="<?php echo $_SESSION['mdpUser'] ?>">
-    <label for="floatingPassword">Entrez votre nouveau mot de passe :</label>
-    <form action="#" method="POST">
-    <input type="submit" class="btn btn-success" name="validNewMdp" id="validNewMdp">Valider</button>
-    </form>
+  <form action="#" method="POST">
+    <input type="text" class="form-control" id="newMDP" name="newMDP" placeholder="<?php echo $_SESSION['mdpUser'] ?>">
+    <input type="submit" class="btn btn-success" name="validNewMdp" id="validNewMdp">
+  </form>
 </div>
 
 
