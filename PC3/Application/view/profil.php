@@ -3,11 +3,13 @@ require "../controler/AppRestController.php";
 require "header.php";
 
 $apicontrol = new AppRestController();
-$lid = $apicontrol->getIDUser($_SESSION['nomUser']);
-
+$idsession = $apicontrol->getIDUser($_SESSION['nomUser']);
+$lid = $idsession[0][0];
 
 if(isset($_POST['validNewMdp'])){
-$newMDP = $apicontrol->modifyMdpBDUser($lid, $_POST['newMDP']);
+$newMDP = $_POST['newMDP'];
+$apicontrol->modifyMdpBDUser($lid, $_POST['newMDP']);
+$_SESSION['mdpUser'] = $newMDP;
 echo "Mot de passe changé en : " . $newMDP;
 }
 
