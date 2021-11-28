@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // U can do validation like unique username etc....
 
-    $sql = $conn->query("INSERT INTO users (firstname, lastname, username, password) VALUES ('$fname', '$lname', '$uname', '$hashed')");
+    $sql = $conn->query("INSERT INTO user (firstname, lastname, username, password) VALUES ('$fname', '$lname', '$uname', '$hashed')");
     if ($sql) {
         http_response_code(201);
         echo json_encode(array('message' => 'User created'));
