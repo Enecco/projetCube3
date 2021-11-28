@@ -2,7 +2,10 @@
 
 session_start();
 
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +28,7 @@ session_start();
     
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
-            <li class="nav-item">
+            <li class="nav-item" id="catalogua" style="display: none;">
               <a class="nav-link" href="catalogue.html">Catalogue
                 <span class="visually-hidden">(current)</span>
               </a>
@@ -65,3 +68,17 @@ session_start();
       </div>
     </nav>
     <!-- /NavBar -->
+
+    <?php
+
+        if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+          echo "<script>
+          let catalogua = document.querySelector('#catalogua');
+          catalogua.style.display = 'block';
+          </script>";
+        }
+        else{
+
+        }
+
+    ?>
