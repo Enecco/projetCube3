@@ -8,3 +8,4 @@ RewriteRule ^contact.html$ PC3/Application/view/contact.php
 RewriteRule ^connexion.html$ PC3/Application/view/connexion.php
 RewriteRule ^deco.html$ PC3/Application/view/deco.php
 RewriteRule ^profil.html$ PC3/Application/view/profil.php
+RewriteRule ^cataloguetest.html$ PC3/Application/view/cataloguetest.php

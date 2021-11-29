@@ -106,4 +106,63 @@ class AppDAO extends Model {
         
     }
     
+    public function createBDContenu(){
+        $req = "SELECT * FROM `contenu`";
+        $stmt = $this->getBdd()->prepare($req); 
+        $stmt->execute();
+        $contenu = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+
+        echo "<div class='container-fluid row'>";
+        $revenirLigne = false;
+        $keyRef = 0;
+
+        foreach ($contenu as $typeDonnee => $value) {
+
+            if ($keyRef > 2) {
+                echo "<div class='row'>";
+                $revenirLigne = true;
+                $keyRef-= 2;
+            }
+
+            $titre = $value['titre'];
+            $cheminImg = $value['image'];
+            $video = $value['video'];
+
+
+
+            echo "
+            <li class='text-light col' style='text-align: center; list-style: none;'><strong style='color:white;'>". $titre ."</strong><br>  
+            <a href='".$video."' target='_blank' ><img src='".$cheminImg."'></a>
+            <ul class='nav nav-tabs row'>
+
+                <li class='nav-item col'>
+                  <a class='nav-link' data-bs-toggle='tab' href='#synopsisIntouchables".$typeDonnee."'>Synopsis</a>
+                </li>
+                <li class='nav-item col'>
+                  <a class='nav-link' data-bs-toggle='tab' href='#infosIntouchables".$typeDonnee."'>Infos</a>
+                </li>
+
+            </ul>
+            <div id='myTabContent' class='tab-content'>
+                <div class='tab-pane fade show' id='synopsisIntouchables".$typeDonnee."'>
+                  <p>Film bien</pq>
+                </div>
+                <div class='tab-pane fade' id='infosIntouchables".$typeDonnee."'>
+                  <p>Bientôt present..</p>
+                </div>
+            </div>
+            </li>";
+
+            if($revenirLigne){
+                echo "</div>";
+                $revenirLigne = false;
+            }
+            $keyRef++;
+        }
+
+        echo "</div>";
+    }
+
+
 }

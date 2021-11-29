@@ -91,4 +91,9 @@
         public function modifyMdpBDUser($lid, $newMdp){
             $leNew = $this->AppDAO->modifyMdpBDUser($lid, $newMdp);
         }
+
+        public function createContenu(){
+            $contenu = $this->AppDAO->createBDContenu();
+            return $contenu;
+        }
     }
