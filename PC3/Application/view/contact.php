@@ -44,7 +44,7 @@
           <rect width="100%" height="100%" fill="#868e96"></rect>
           <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image pacap</text>
         </svg> -->
-        <img src="PC3/Application/view/img/photoOk.png" alt="dubosc">
+        <img src="PC3/Application/view/img/quentin.png" alt="dubosc">
         <div class="card-body">
           <p class="card-text">Cursus réseau, gestion.</p>
         </div>
